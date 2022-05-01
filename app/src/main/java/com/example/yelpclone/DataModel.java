@@ -7,10 +7,11 @@ import java.util.ArrayList;
 
 public class DataModel{
 
-    @SerializedName("total")
-    public int total;
+
     @SerializedName("businesses")
     public ArrayList<YelpRestaurants> yelpRestaurants;
+    @SerializedName("total")
+    public int total;
 
     public void setTotal(int total) {
         this.total = total;
@@ -44,7 +45,15 @@ public class DataModel{
         @SerializedName("categories")
         public ArrayList<YelpCategories> yelpCategories;
         @SerializedName("location")
-        public ArrayList<YelpLocations> yelpLocations;
+        public YelpLocations yelpLocations;
+
+        public YelpLocations getYelpLocations() {
+            return yelpLocations;
+        }
+
+        public void setYelpLocations(YelpLocations yelpLocations) {
+            this.yelpLocations = yelpLocations;
+        }
 
         public void setName(String name) {
             this.name = name;
@@ -72,10 +81,6 @@ public class DataModel{
 
         public void setYelpCategories(ArrayList<YelpCategories> yelpCategories) {
             this.yelpCategories = yelpCategories;
-        }
-
-        public void setYelpLocations(ArrayList<YelpLocations> yelpLocations) {
-            this.yelpLocations = yelpLocations;
         }
 
         public String getName() {
@@ -106,9 +111,6 @@ public class DataModel{
             return yelpCategories;
         }
 
-        public ArrayList<YelpLocations> getYelpLocations() {
-            return yelpLocations;
-        }
     }
 
     class YelpCategories{
@@ -124,8 +126,8 @@ public class DataModel{
         }
     }
 
-    class YelpLocations{
-        @SerializedName("address")
+     class YelpLocations{
+        @SerializedName("address1")
         public String address;
 
         public void setAddress(String address) {
