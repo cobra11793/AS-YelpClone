@@ -36,12 +36,13 @@ public class MainActivity extends AppCompatActivity {
                 call.enqueue(new Callback<DataModel>() {
                     @Override
                     public void onResponse(Call<DataModel> call, Response<DataModel> response) {
-                        Log.e(TAG, "onResponse: " +response.code());
+                        Log.e(TAG, "onResponse: " +response.body());
+
                     }
 
                     @Override
                     public void onFailure(Call<DataModel> call, Throwable t) {
-                        Toast.makeText(MainActivity.this, "error :(", Toast.LENGTH_SHORT).show();
+                        Log.e(TAG, "onFailure: "+t.getMessage());
                     }
                 });
 
