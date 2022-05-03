@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Build Recycler View here + Make new class for Mapping data WATCH: https://www.youtube.com/watch?v=de8F4jwTbE8
 
                 YelpService yelpService = RetrofitClient.getRetrofitInstance().create(YelpService.class);
                 Call<DataModel> call = yelpService.searchRestaurants("Bearer "+API_KEY, "Avocado", "New York");
