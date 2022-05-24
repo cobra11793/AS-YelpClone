@@ -1,4 +1,4 @@
-package com.example.yelpclone;
+package com.example.yelpclone.models;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -29,7 +29,7 @@ public class DataModel{
         return yelpRestaurants;
     }
 
-    class YelpRestaurants{
+    class YelpRestaurants {
         @SerializedName("name")
         public String name;
         @SerializedName("rating")
@@ -52,7 +52,7 @@ public class DataModel{
         }
 
         public void setYelpLocations(YelpLocations yelpLocations) {
-            this.yelpLocations = yelpLocations;
+            this.yelpLocations = yelpLocations; 
         }
 
         public void setName(String name) {
@@ -113,7 +113,7 @@ public class DataModel{
 
     }
 
-    class YelpCategories{
+    class YelpCategories {
         @SerializedName("title")
         public String title;
 
@@ -126,7 +126,7 @@ public class DataModel{
         }
     }
 
-     class YelpLocations{
+     class YelpLocations {
         @SerializedName("address1")
         public String address;
 
