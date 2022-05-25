@@ -29,7 +29,7 @@ public class DataModel{
         return yelpRestaurants;
     }
 
-    class YelpRestaurants {
+     public class YelpRestaurants {
         @SerializedName("name")
         public String name;
         @SerializedName("rating")
@@ -113,7 +113,7 @@ public class DataModel{
 
     }
 
-    class YelpCategories {
+    public class YelpCategories {
         @SerializedName("title")
         public String title;
 
@@ -126,7 +126,7 @@ public class DataModel{
         }
     }
 
-     class YelpLocations {
+     public class YelpLocations {
         @SerializedName("address1")
         public String address;
 
