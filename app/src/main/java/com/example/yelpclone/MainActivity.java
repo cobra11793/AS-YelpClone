@@ -11,8 +11,10 @@ import com.example.yelpclone.adapters.RestaurantAdapter;
 import com.example.yelpclone.models.DataModel;
 import com.example.yelpclone.services.RetrofitClient;
 import com.example.yelpclone.services.YelpService;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
@@ -27,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     RestaurantAdapter restaurantAdapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,9 +45,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<DataModel> call, Response<DataModel> response) {
                 if(response.isSuccessful()){
-                    DataModel dataModels = response.body();
-                    restaurantAdapter.setData(dataModels);
                     recyclerView.setAdapter(restaurantAdapter);
+                    restaurantAdapter.setData(response.body());
                 }
             }
 

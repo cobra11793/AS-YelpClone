@@ -13,16 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.yelpclone.R;
 import com.example.yelpclone.models.DataModel;
 
-import org.w3c.dom.Text;
-
-import java.util.List;
-
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.RestaurantAdapterViewHolder> {
-    private List<DataModel> dataModelList;
+    private DataModel dataModel;
     private Context context;
 
-    public void setData(List<DataModel> dataModelList) {
-        this.dataModelList = dataModelList;
+    public RestaurantAdapter() {
+    }
+
+    public void setData(DataModel dataModelList) {
+        this.dataModel = dataModelList;
         notifyDataSetChanged();
     }
 
@@ -35,46 +34,39 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
 
     @Override
     public void onBindViewHolder(@NonNull RestaurantAdapterViewHolder holder, int position) {
-        DataModel dataModel = dataModelList.get(position);
-        String name = dataModel.yelpRestaurants.get(position).getName();
-        double rating = dataModel.yelpRestaurants.get(position).getRating();
-        int numReviews = dataModel.yelpRestaurants.get(position).getNumReviews();
-        String address = dataModel.yelpRestaurants.get(position).yelpLocations.getAddress();
-        String category = dataModel.yelpRestaurants.get(position).yelpCategories.get(0).getTitle();
-        double distanceInMeters = dataModel.yelpRestaurants.get(position).getDistanceInMeters();
-        String price = dataModel.yelpRestaurants.get(position).getPrice();
-        holder.name.setText(name);
-        holder.ratingBar.setRating((float) rating);
-        holder.numReviews.setText(numReviews);
-        holder.address.setText(address);
-        holder.category.setText(category);
-        holder.distanceInMeters.setText((int) distanceInMeters);
-        holder.price.setText(price);
+        DataModel.YelpRestaurants restaurants = dataModel.yelpRestaurants.get(position);
+        holder.nameTextView.setText(restaurants.name);
+        holder.ratingBar.setRating((float) restaurants.rating);
+//        holder.numReviewsTextView.setText(restaurants.numReviews);
+//        holder.addressTextView.setText(restaurants.yelpLocations.address);
+//        holder.categoryTextView.setText(restaurants.yelpCategories);
+//        holder.distanceInMetersTextView.setText((int) distanceInMeters);
+//        holder.priceTextView.setText(price);
     }
 
     @Override
     public int getItemCount() {
-        return dataModelList.size();
+        return dataModel.yelpRestaurants.size();
     }
 
     public class RestaurantAdapterViewHolder extends RecyclerView.ViewHolder {
-        TextView name;
+        TextView nameTextView;
         RatingBar ratingBar;
-        TextView numReviews;
-        TextView address;
-        TextView category;
-        TextView distanceInMeters;
-        TextView price;
+        TextView numReviewsTextView;
+        TextView addressTextView;
+        TextView categoryTextView;
+        TextView distanceInMetersTextView;
+        TextView priceTextView;
 
         public RestaurantAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.tvName);
+            nameTextView = itemView.findViewById(R.id.tvName);
             ratingBar = itemView.findViewById(R.id.ratingBar);
-            numReviews = itemView.findViewById(R.id.tvNumReviews);
-            address = itemView.findViewById(R.id.tvAddress);
-            category = itemView.findViewById(R.id.tvCategory);
-            distanceInMeters = itemView.findViewById(R.id.tvDistance);
-            price = itemView.findViewById(R.id.tvPrice);
+            numReviewsTextView = itemView.findViewById(R.id.tvNumReviews);
+            addressTextView = itemView.findViewById(R.id.tvAddress);
+            categoryTextView = itemView.findViewById(R.id.tvCategory);
+            distanceInMetersTextView = itemView.findViewById(R.id.tvDistance);
+            priceTextView = itemView.findViewById(R.id.tvPrice);
         }
     }
     }

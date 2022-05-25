@@ -13,22 +13,6 @@ public class DataModel{
     @SerializedName("total")
     public int total;
 
-    public void setTotal(int total) {
-        this.total = total;
-    }
-
-    public void setYelpRestaurants(ArrayList<YelpRestaurants> yelpRestaurants) {
-        this.yelpRestaurants = yelpRestaurants;
-    }
-
-    public int getTotal() {
-        return total;
-    }
-
-    public ArrayList<YelpRestaurants> getYelpRestaurants() {
-        return yelpRestaurants;
-    }
-
      public class YelpRestaurants {
         @SerializedName("name")
         public String name;
